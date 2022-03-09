@@ -26,3 +26,6 @@ Route::post('/chatroom', function () {
 
 Route::post('login', LoginController::class);
 Route::post('register', RegisterController::class);
+Route::get('/chatroom', [App\Http\Controllers\ChatsController::class, 'index']);
+Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
+Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
