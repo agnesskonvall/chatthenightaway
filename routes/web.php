@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SignupController;
 use Illuminate\Support\Facades\Route;
@@ -19,15 +20,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('guest');
 
 Route::post('/chatroom', function () {
     return view('chatroom');
 });
 
-Route::post('login', LoginController::class);
+Route::post('login', LoginController::class)->middleware('guest');
 Route::post('register', RegisterController::class);
-Route::get('/chatroom', [App\Http\Controllers\ChatsController::class, 'index']);
-Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
-Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
-Route::get('signup', SignupController::class);
+Route::get('/chatroom', [App\Http\Controllers\ChatsController::class, 'index'])->middleware('auth');
+Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages'])->middleware('auth');
+Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage'])->middleware('auth');
+Route::get('signup', SignupController::class)->middleware('guest');
+Route::get('logout', LogoutController::class);
