@@ -20,7 +20,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/test', function () {
+//     $message = new Message([
+//         'content' => "test",
+//         'user_id' => Auth::user()->id
+//     ]);
 
+//     dd($message->save());
+// });
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,7 +35,7 @@ Route::get('/', function () {
 
 Route::post('/chatroom', function () {
     return view('chatroom');
-})->middleware('auth');
+});
 
 Route::post('login', LoginController::class)->middleware('guest');
 Route::post('register', RegisterController::class);
