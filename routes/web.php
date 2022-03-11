@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Route::post('/chatroom', function () {
     return view('chatroom');
-});
+})->middleware('auth');
 
 Route::post('login', LoginController::class)->middleware('guest');
 Route::post('register', RegisterController::class);
