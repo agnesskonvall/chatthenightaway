@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 
 class ChatsController extends Controller
@@ -27,9 +30,13 @@ class ChatsController extends Controller
     public function sendMessage(Request $request)
     {
         $user = Auth::user();
-        $message = $user->messages()->create([
-            'message' => $request->input('message')
+        $message = new Message([
+            'content' => $request->get('message'),
+            'user_id' => $user->id
         ]);
+
+        $message->save();
+
         return ['status' => 'Message Sent!'];
     }
 }
