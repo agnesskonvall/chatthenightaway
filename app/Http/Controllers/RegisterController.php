@@ -28,6 +28,6 @@ class RegisterController extends Controller
 
         auth()->login($user);
 
-        return redirect('/');
+        return redirect('/chatroom');
     }
 }
