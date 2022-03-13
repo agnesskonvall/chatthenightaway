@@ -41,6 +41,6 @@ Route::post('login', LoginController::class)->middleware('guest');
 Route::post('register', RegisterController::class);
 Route::get('/chatroom', [App\Http\Controllers\ChatsController::class, 'index'])->middleware('auth');
 Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages'])->middleware('auth');
-Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage'])->middleware('auth');
+Route::post('sendmessage', [App\Http\Controllers\ChatsController::class, 'sendMessage'])->middleware('auth');
 Route::get('signup', SignupController::class)->middleware('guest');
 Route::get('logout', LogoutController::class);

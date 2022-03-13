@@ -31,12 +31,12 @@ class ChatsController extends Controller
     {
         $user = Auth::user();
         $message = new Message([
-            'content' => $request->get('message'),
+            'content' => $request->get('content'),
             'user_id' => $user->id
         ]);
 
         $message->save();
 
-        return ['status' => 'Message Sent!'];
+        return back();
     }
 }

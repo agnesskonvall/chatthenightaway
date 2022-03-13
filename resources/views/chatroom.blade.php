@@ -9,9 +9,11 @@
         <div class="card-body">
         </div>
         <div class="card-footer">
-            <form action="/">
+            <form action="sendmessage" method="POST">
+                @csrf
                 <div class="d-flex p-2">
-                    <input class="form-control" type="text" name="" id="" placeholder="Type message here">
+                    <label for="content"></label>
+                    <input class="form-control" type="text" name="content" id="content" placeholder="Type message here">
                     <button class="btn btn-primary" type="submit">Send</button>
                 </div>
             </form>
