@@ -23,6 +23,7 @@ class ChatsController extends Controller
     {
         $messages = Message::select('*')
             ->join('users', 'users.id', '=', 'messages.user_id')
+            ->orderBy('messages.created_at')
             ->get();
         $user = Auth::user();
 

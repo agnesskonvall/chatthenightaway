@@ -2166,6 +2166,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Echo.channel("chatroom").listen("MessageSent", function (e) {
   console.log("message.content");
+  window.reload();
 });
 
 /***/ }),
