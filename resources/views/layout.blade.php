@@ -12,6 +12,6 @@
 
 <body>
     @yield('content')
-</body>
+    <script src="js/app.js"></script>
 
-</html>
+</body>
