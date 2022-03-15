@@ -2164,7 +2164,7 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-Echo.channel("chatroom").listen("MessageSent", function (e) {
+window.Echo.channel("chatroom").listen("MessageSent", function (e) {
   console.log("message.content");
 });
 
