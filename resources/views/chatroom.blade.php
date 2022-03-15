@@ -7,6 +7,7 @@
     <div class="card">
         <div class="card-header">Chats</div>
         <div class="card-body">
+
         </div>
         <div class="card-footer">
             <form action="sendmessage" method="POST">

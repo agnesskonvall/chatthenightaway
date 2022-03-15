@@ -30,6 +30,11 @@ class ChatsController extends Controller
     public function sendMessage(Request $request)
     {
         $user = Auth::user();
+
+        $this->validate($request, [
+            'content' => 'required|string',
+        ]);
+
         $message = new Message([
             'content' => $request->get('content'),
             'user_id' => $user->id

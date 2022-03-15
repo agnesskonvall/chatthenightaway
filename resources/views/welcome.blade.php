@@ -1,5 +1,6 @@
+@extends('layout')
+@section('content')
 @include('errors')
-
 <form method="post" action="/login">
     @csrf
     <div>
@@ -13,3 +14,4 @@
     <button type="submit">Login</button>
 </form>
 <a href="signup">Sign Up</a>
+@endsection
