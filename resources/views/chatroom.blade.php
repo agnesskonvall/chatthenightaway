@@ -6,8 +6,11 @@
 <div class="container">
     <div class="card">
         <div class="card-header">Chats</div>
-        <div class="card-body"> {{$messages}}
+        @foreach ($messages as $message)
+        <div class="card-body">{{$user->username}}: {{$message->content}}
         </div>
+        @endforeach
+
         <div class="card-footer">
             <form action="sendmessage" method="POST">
                 @csrf

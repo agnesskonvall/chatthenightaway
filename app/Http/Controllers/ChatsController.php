@@ -20,8 +20,12 @@ class ChatsController extends Controller
     public function index()
     {
         $messages = Message::all();
+        $user = Auth::user();
 
-        return view('chatroom', ['messages' => $messages]);
+        return view('chatroom', [
+            'messages' => $messages,
+            'user' => $user
+        ]);
     }
 
     public function fetchMessages()
