@@ -19,7 +19,9 @@ class ChatsController extends Controller
 
     public function index()
     {
-        $messages = Message::all();
+        $messages = Message::select('*')
+            ->join('users', 'users.id', '=', 'messages.user_id')
+            ->get();
         $user = Auth::user();
 
         return view('chatroom', [
