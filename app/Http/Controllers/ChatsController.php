@@ -19,7 +19,9 @@ class ChatsController extends Controller
 
     public function index()
     {
-        return view('chatroom');
+        $messages = Message::all();
+
+        return view('chatroom', ['messages' => $messages]);
     }
 
     public function fetchMessages()

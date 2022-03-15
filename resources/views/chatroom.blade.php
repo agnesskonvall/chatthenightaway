@@ -6,8 +6,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header">Chats</div>
-        <div class="card-body">
-
+        <div class="card-body"> {{$messages}}
         </div>
         <div class="card-footer">
             <form action="sendmessage" method="POST">
