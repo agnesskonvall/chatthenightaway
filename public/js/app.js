@@ -2167,7 +2167,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 Echo.channel("chatroom").listen("MessageSent", function (e) {
   console.log("message.content");
 });
-console.log("hej");
 
 /***/ }),
 
@@ -2203,7 +2202,6 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   cluster: "eu",
   forceTLS: true
 });
-console.log("hej");
 
 /***/ }),
 
