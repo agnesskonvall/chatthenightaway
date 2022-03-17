@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use App\Models\User;
 use App\Events\MessageSent;
-
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 
 
 class ChatsController extends Controller
@@ -55,8 +52,6 @@ class ChatsController extends Controller
 
         $message->save();
         broadcast(new MessageSent($user, $message))->toOthers();
-
-
         return back();
     }
 }
