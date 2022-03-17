@@ -13,11 +13,11 @@ use App\Models\User;
 use App\Models\Message;
 use Illuminate\Broadcasting\InteractsWithBroadcasting;
 
-class MessageSent implements ShouldBroadcast
+class MessageDeleted implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels, InteractsWithBroadcasting;
     public $user;
-    public $message;
+    public $deleted;
 
 
     /**
@@ -25,10 +25,10 @@ class MessageSent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(User $user, Message $message)
+    public function __construct(User $user, Message $deleted)
     {
         $this->user = $user;
-        $this->message = $message;
+        $this->message = $deleted;
         $this->broadcastVia('pusher');
     }
 
