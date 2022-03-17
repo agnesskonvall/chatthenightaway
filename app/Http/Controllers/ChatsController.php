@@ -23,12 +23,14 @@ class ChatsController extends Controller
     {
         $messages = Message::select('*')
             ->join('users', 'users.id', '=', 'messages.user_id')
-            ->orderBy('messages.created_at')
+            ->orderBy('messages.created_at', "desc")
+            ->limit(15)
+            ->take(-10)
             ->get();
         $user = Auth::user();
 
         return view('chatroom', [
-            'messages' => $messages,
+            'messages' => $messages->reverse(),
             'user' => $user
         ]);
     }
