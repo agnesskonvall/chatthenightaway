@@ -8,7 +8,7 @@
         <div class="card-header">Chats</div>
         <div class="card-body">
             @foreach ($messages as $message)
-            <div>{{$message->username}}: {{$message->content}}
+            <div class="message" id="message">{{$message->username}}: {{$message->content}}
             </div>
             @endforeach
         </div>

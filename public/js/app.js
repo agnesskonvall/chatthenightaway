@@ -2165,8 +2165,11 @@ module.exports = {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Echo.channel("chatroom").listen("MessageSent", function (e) {
-  console.log("message.content");
-  window.reload();
+  var messageDiv = document.querySelector(".card-body");
+  var message = document.createElement("p");
+  message.innerText = e.user.username + ": " + e.message.content;
+  document.querySelector(".card-body").appendChild(message);
+  console.log(e);
 });
 
 /***/ }),
