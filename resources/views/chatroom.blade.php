@@ -10,7 +10,7 @@
 
             <div class="message" id="message">{{$message->username}}: {{$message->content}}
                 @if ($user->id === $message->user_id)
-                <button action="delete" class="delete">Delete</button>
+                <a href='delete/{{$message->chatid}}' class="delete">Delete</a>
                 @endif
 
             </div>

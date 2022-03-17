@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use App\Models\User;
 use App\Events\MessageSent;
+use App\Events\MessageDeleted;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 
 class ChatsController extends Controller
 {
@@ -23,6 +24,7 @@ class ChatsController extends Controller
             ->orderBy('messages.created_at', "desc")
             ->limit(15)
             ->take(-10)
+            ->select('messages.id AS chatid', 'messages.*', 'users.*')
             ->get();
         $user = Auth::user();
 
@@ -52,6 +54,17 @@ class ChatsController extends Controller
 
         $message->save();
         broadcast(new MessageSent($user, $message))->toOthers();
+        return back();
+    }
+
+    public function deleteMessage(Request $request, $id)
+    {
+        $user = Auth::user();
+        $deleted = DB::destroy()
+            ->where('message_id', '=', $id)
+            ->delete();
+
+        broadcast(new MessageDeleted($user, $deleted))->toOthers();
         return back();
     }
 }
