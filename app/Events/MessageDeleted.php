@@ -25,7 +25,7 @@ class MessageDeleted implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(User $user, Message $deleted)
+    public function __construct(User $user, int $deleted)
     {
         $this->user = $user;
         $this->message = $deleted;

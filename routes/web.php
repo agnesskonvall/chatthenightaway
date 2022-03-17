@@ -44,4 +44,4 @@ Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMess
 Route::post('sendmessage', [App\Http\Controllers\ChatsController::class, 'sendMessage'])->middleware('auth');
 Route::get('signup', SignupController::class)->middleware('guest');
 Route::get('logout', LogoutController::class);
-Route::get('delete/{id}', [App\Http\Controllers\ChatsController::class, 'deleteMessage'])->middleware('auth');
+Route::get('/delete/{id}', [App\Http\Controllers\ChatsController::class, 'deleteMessage'])->middleware('auth');
