@@ -8,7 +8,6 @@ use Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
-
 class CreateUserTest extends TestCase
 {
     use RefreshDatabase;
@@ -41,16 +40,16 @@ class CreateUserTest extends TestCase
             'color' => 'test'
         ]);
     }
-    // public function test_redirects_to_view_chatroom()
-    // {
-    //     $user = new User([
-    //         'username' => 'test',
-    //         'email' => 'test@test.com',
-    //         'password' => Hash::make('test'),
-    //         'color' => "test"
-    //     ]);
-    //     $user->save();
-
-    //     auth()->login($user);
-    // }
+    public function test_redirects_to_view_chatroom()
+    {
+        $response =
+            $this
+            ->post('register', [
+                'username' => 'test',
+                'email' => 'test@test.com',
+                'password' => Hash::make('test'),
+                'color' => "test"
+            ]);
+        $response->assertRedirect('chatroom');
+    }
 }
