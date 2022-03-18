@@ -16,6 +16,23 @@ class CreateMessageTest extends TestCase
      *
      * @return void
      */
+
+    public function test_view_chat_form()
+    {
+        $user = new User([
+            'username' => 'test',
+            'email' => 'test@test.com',
+            'password' => Hash::make('test'),
+            'color' => "test"
+        ]);
+        $user->save();
+
+        auth()->login($user);
+
+        $response = $this->get('chatroom');
+        $response->assertStatus(200);
+    }
+
     public function test_create_message()
     {
         $user = new User([
