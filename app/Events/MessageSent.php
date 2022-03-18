@@ -15,7 +15,11 @@ use Illuminate\Broadcasting\InteractsWithBroadcasting;
 
 class MessageSent implements ShouldBroadcast
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels, InteractsWithBroadcasting;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
+    use InteractsWithBroadcasting;
+
     public $user;
     public $message;
 
