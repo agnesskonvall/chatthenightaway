@@ -10,6 +10,7 @@ use App\Models\User;
 
 class LoginTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      *
@@ -24,15 +25,13 @@ class LoginTest extends TestCase
 
     public function test_login_user()
     {
-        // Once tested, the User already exists in database.
-        // Only use code below when in need to registering a new user
-        // $user = new User([
-        //     'username' => 'test',
-        //     'email' => 'test@test.com',
-        //     'password' => Hash::make('123'),
-        //     'color' => "test"
-        // ]);
-        // $user->save();
+        $user = new User([
+            'username' => 'test',
+            'email' => 'test@test.com',
+            'password' => Hash::make('123'),
+            'color' => "test"
+        ]);
+        $user->save();
 
         $response = $this->followingRedirects()->post('login', [
             'email' => 'test@test.com',
