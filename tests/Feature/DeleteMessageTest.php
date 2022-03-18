@@ -8,7 +8,7 @@ use Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
-class CreateMessageTest extends TestCase
+class DeleteMessageTest extends TestCase
 {
     use RefreshDatabase;
     /**
@@ -16,7 +16,7 @@ class CreateMessageTest extends TestCase
      *
      * @return void
      */
-    public function test_create_message()
+    public function test_delete_message()
     {
         $user = new User([
             'username' => 'test',
@@ -36,8 +36,14 @@ class CreateMessageTest extends TestCase
                 'content' => 'Hello World!',
             ]);
 
-        $this->assertDatabaseHas('messages', [
-            'content' => 'Hello World!'
+        $this
+            ->from('/chatroom')
+            ->followingRedirects()
+            ->actingAs($user)
+            ->get('delete/1');
+
+        $this->assertDatabaseMissing('messages', [
+            'content' => 'Hello World!',
         ]);
     }
 }
