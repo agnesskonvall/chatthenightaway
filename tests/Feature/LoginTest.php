@@ -28,7 +28,7 @@ class LoginTest extends TestCase
         $user = new User([
             'username' => 'test',
             'email' => 'test@test.com',
-            'password' => Hash::make('123'),
+            'password' => Hash::make('test'),
             'color' => "test"
         ]);
         $user->save();
