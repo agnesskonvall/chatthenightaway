@@ -2,15 +2,20 @@
 @section('content')
 <h1>HELLO WELCOME</h1>
 <a href="/logout">log out</a>
-
 <div class="container">
     <div class="card">
         <div class="card-header">Chats</div>
-        @foreach ($messages as $message)
-        <div class="card-body">{{$message->username}}: {{$message->content}}
-        </div>
-        @endforeach
+        <div class="card-body">
+            @foreach ($messages as $message)
 
+            <div class="message" id="{{$message->chatid}}">{{$message->username}}: {{$message->content}}
+                @if ($user->id === $message->user_id)
+                <a href='delete/{{$message->chatid}}' class="delete">Delete</a>
+                @endif
+
+            </div>
+            @endforeach
+        </div>
         <div class="card-footer">
             <form action="sendmessage" method="POST">
                 @csrf
