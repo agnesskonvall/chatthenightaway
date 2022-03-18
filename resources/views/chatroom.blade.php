@@ -8,11 +8,10 @@
         <div class="card-body">
             @foreach ($messages as $message)
 
-            <div class="message" id="{{$message->chatid}}">{{$message->username}}: {{$message->content}}
+            <div class="message" id="{{$message->chatid}}"><span style="color: {{$user->color}}">{{$message->username}}:</span> {{$message->content}}
                 @if ($user->id === $message->user_id)
                 <a href='delete/{{$message->chatid}}' class="delete">Delete</a>
                 @endif
-
             </div>
             @endforeach
         </div>
