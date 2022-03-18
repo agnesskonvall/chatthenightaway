@@ -1,4 +1,4 @@
-[Chat the night away](https://media.giphy.com/media/pirtYVKOEha8M/giphy.gif)
+![Chat the night away](https://media.giphy.com/media/pirtYVKOEha8M/giphy.gif)
 
 ## Chat the night away
 
