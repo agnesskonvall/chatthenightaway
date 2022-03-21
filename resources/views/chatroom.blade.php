@@ -7,12 +7,15 @@
         <div class="card-header">Chats</div>
         <div class="card-body">
             @foreach ($messages as $message)
+            @if ($message->content !== '0')
 
             <div class="message" id="{{$message->chatid}}"><span style="color: {{$message->color}}">{{$message->username}}:</span> {{$message->content}}
                 @if ($user->id === $message->user_id)
                 <a href='delete/{{$message->chatid}}' class="delete">Delete</a>
                 @endif
             </div>
+            @endif
+
             @endforeach
         </div>
         <div class="card-footer">
