@@ -21,7 +21,7 @@ class MessageDeleted implements ShouldBroadcast
     use InteractsWithBroadcasting;
 
     public $user;
-    public $deleted;
+    public $messagesent;
 
 
     /**
@@ -29,10 +29,10 @@ class MessageDeleted implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(User $user, int $deleted)
+    public function __construct(User $user, Message $messagesent)
     {
         $this->user = $user;
-        $this->message = $deleted;
+        $this->message = $messagesent;
         $this->broadcastVia('pusher');
     }
 

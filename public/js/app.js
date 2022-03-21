@@ -2169,11 +2169,11 @@ window.Echo.channel("chatroom").listen("MessageSent", function (e) {
   var message = document.createElement("p");
   message.innerText = e.user.username + ": " + e.message.content;
   document.querySelector(".card-body").appendChild(message);
-  console.log(e);
+  console.log(e.message.id);
 });
 window.Echo.channel("chatroom").listen("MessageDeleted", function (e) {
-  var deletedmessage = document.getElementById(e.message.id);
-  deletedmessage.remove();
+  // const deletedmessage = document.getElementById(e.sentmessage.id);
+  // deletedmessage.remove();
   console.log(e);
 });
 
