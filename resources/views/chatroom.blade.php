@@ -9,7 +9,7 @@
             @foreach ($messages as $message)
             @if ($message->content !== '0')
 
-            <div class="message" id="{{$message->chatid}}"><span style="color: {{$message->color}}">{{$message->username}}:</span> {{$message->content}}
+            <div class="message" id="{{$message->chatid}}"><span style="color: {{$message->color}}"><b>{{$message->username}}:</b></span> {{$message->content}}
                 @if ($user->id === $message->user_id)
                 <a href='delete/{{$message->chatid}}' class="delete">Delete</a>
                 @endif

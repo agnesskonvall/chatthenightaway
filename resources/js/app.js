@@ -4,7 +4,7 @@ window.Echo.channel(`chatroom`).listen("MessageSent", (e) => {
     const messageDiv = document.querySelector(".card-body");
     const message = document.createElement("p");
     message.innerHTML =
-        `<span style="color: ${e.user.color}">${e.user.username}</span>` +
+        `<span style="color: ${e.user.color}"><b>${e.user.username}</b></span>` +
         ": " +
         e.message.content;
     message.setAttribute("id", e.message.id);
