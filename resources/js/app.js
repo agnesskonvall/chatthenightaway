@@ -15,3 +15,9 @@ window.Echo.channel(`chatroom`).listen("MessageDeleted", (e) => {
     deletedmessage.remove();
     console.log(e);
 });
+
+window.Echo.channel(`chatroom`).listen("NudgeSent", (e) => {
+    const chatbox = document.querySelector(".container");
+    chatbox.classList.toggle("nudge");
+    console.log(e);
+});

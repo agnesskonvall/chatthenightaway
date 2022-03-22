@@ -42,6 +42,7 @@ Route::post('register', RegisterController::class)->middleware('guest');
 Route::get('/chatroom', [App\Http\Controllers\ChatsController::class, 'index'])->middleware('auth');
 Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages'])->middleware('auth');
 Route::post('sendmessage', [App\Http\Controllers\ChatsController::class, 'sendMessage'])->middleware('auth');
+Route::post('sendnudge', [App\Http\Controllers\ChatsController::class, 'sendNudge']);
 Route::get('signup', SignupController::class)->middleware('guest');
 Route::get('logout', LogoutController::class)->middleware('auth');
 Route::get('/delete/{id}', [App\Http\Controllers\ChatsController::class, 'deleteMessage'])->middleware('auth');

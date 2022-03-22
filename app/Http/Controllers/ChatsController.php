@@ -6,6 +6,7 @@ use App\Models\Message;
 use App\Models\User;
 use App\Events\MessageSent;
 use App\Events\MessageDeleted;
+use App\Events\NudgeSent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -69,5 +70,8 @@ class ChatsController extends Controller
 
     public function sendNudge()
     {
+        $user = Auth::user();
+        broadcast(new NudgeSent($user))->toOthers();
+        return back();
     }
 }

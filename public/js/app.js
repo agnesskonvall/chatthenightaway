@@ -2178,6 +2178,11 @@ window.Echo.channel("chatroom").listen("MessageDeleted", function (e) {
   deletedmessage.remove();
   console.log(e);
 });
+window.Echo.channel("chatroom").listen("NudgeSent", function (e) {
+  var chatbox = document.querySelector(".container");
+  chatbox.classList.toggle("nudge");
+  console.log(e);
+});
 
 /***/ }),
 
