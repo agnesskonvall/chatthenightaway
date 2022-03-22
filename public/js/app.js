@@ -2167,7 +2167,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Echo.channel("chatroom").listen("MessageSent", function (e) {
   var messageDiv = document.querySelector(".card-body");
   var message = document.createElement("p");
-  message.innerText = e.user.username + ": " + e.message.content;
+  message.innerHTML = "<span style=\"color: ".concat(e.user.color, "\">").concat(e.user.username, "</span>") + ": " + e.message.content;
   message.setAttribute("id", e.message.id);
   document.querySelector(".card-body").appendChild(message);
   console.log(e.message.id);
