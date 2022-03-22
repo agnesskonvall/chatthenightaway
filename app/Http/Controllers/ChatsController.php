@@ -66,4 +66,8 @@ class ChatsController extends Controller
         broadcast(new MessageDeleted($user, $id))->toOthers();
         return back();
     }
+
+    public function sendNudge()
+    {
+    }
 }
