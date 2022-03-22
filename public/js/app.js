@@ -2168,12 +2168,14 @@ window.Echo.channel("chatroom").listen("MessageSent", function (e) {
   var messageDiv = document.querySelector(".card-body");
   var message = document.createElement("p");
   message.innerText = e.user.username + ": " + e.message.content;
+  message.setAttribute("id", e.message.id);
   document.querySelector(".card-body").appendChild(message);
   console.log(e.message.id);
 });
 window.Echo.channel("chatroom").listen("MessageDeleted", function (e) {
-  // const deletedmessage = document.getElementById(e.sentmessage.id);
-  // deletedmessage.remove();
+  var deletedmessage = document.getElementById(e.id);
+  console.log(deletedmessage);
+  deletedmessage.remove();
   console.log(e);
 });
 
