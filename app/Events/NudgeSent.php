@@ -14,7 +14,11 @@ use Illuminate\Broadcasting\InteractsWithBroadcasting;
 
 class NudgeSent implements ShouldBroadcast
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels, InteractsWithBroadcasting;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
+    use InteractsWithBroadcasting;
+
     public $user;
 
     /**
